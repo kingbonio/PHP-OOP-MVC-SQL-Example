@@ -1,0 +1,86 @@
+<?php
+
+Class Product{
+
+
+    public $partnumber;
+    public $description;
+    public $image;
+    public $stock;
+    public $costprice;
+    public $saleprice;
+    public $vatrate;
+
+
+    public function __construct($partnumber, $description, $image, $stock, $costprice, $saleprice, $vatrate) {
+      $this->partnumber = $partnumber;
+      $this->description = $description;
+      $this->image = $image;
+      $this->stock = $stock;
+      $this->costprice = $costprice;
+      $this->saleprice = $saleprice;
+      $this->vatrate = $vatrate;
+    }
+
+
+    public function getAll(){
+
+    	$sqlGetAll = 'SELECT * FROM `products`';
+
+    	$dbInstance = Database::getInstance();
+
+    	$sqlRequest = $dbInstance->prepare($sqlGetAll);
+
+    	$sqlRequest->execute(array());
+
+    	$productList = $sqlRequest->fetch();
+
+    	$list = [];
+    	
+      foreach($sqlRequest->fetchAll() as $product) {
+        $list[] = new Product($product['partnumber'],
+			$product['description'],
+			$product['image'],
+			$product['stock'],
+			$product['costprice'],
+			$product['saleprice'],
+			$product['vatrate']);
+      }
+      return $list;
+    }
+
+
+    public function edit($partNumber, $description, $image, $stock, $costPrice, $salePrice, $vatRate){
+
+
+		$sqlEdit = 'UPDATE products SET description= :description, image= :image, stock= :stock, costprice= :costprice, saleprice= :saleprice, vatrate= :vatrate WHERE partnumber= :partnumber';
+
+    	$dbInstance = Database::getInstance();
+
+    	$sqlRequest = $dbInstance->prepare($sqlEdit);
+
+    	$sqlRequest->execute(array(':description' => $description,':image' => $image,':stock' => $stock,':costprice' => $costPrice,':saleprice' => $salePrice,':vatrate' => $vatRate,':partnumber' => $partNumber));
+
+
+      return $sqlRequest;
+    }
+
+
+    public function create($description, $image, $stock, $costPrice, $salePrice, $vatRate){
+
+
+		$sqlCreate = 'INSERT INTO products (description, image, stock, costprice, saleprice, vatrate) VALUES (:description, :image, :stock, :costprice, :saleprice, :vatrate)';
+
+    	$dbInstance = Database::getInstance();
+
+    	$sqlRequest = $dbInstance->prepare($sqlCreate);
+
+    	$sqlRequest->execute(array(':description' => $description,':image' => $image,':stock' => $stock,':costprice' => $costPrice,':saleprice' => $salePrice,':vatrate' => $vatRate));
+
+      return $sqlRequest;
+    }
+
+
+}
+
+?>
