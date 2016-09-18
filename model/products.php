@@ -33,9 +33,9 @@ Class Product{
 
     	$sqlRequest->execute(array());
 
-    	$productList = $sqlRequest->fetch();
-
     	$list = [];
+
+    	// var_dump($sqlRequest->fetchAll());
     	
       foreach($sqlRequest->fetchAll() as $product) {
         $list[] = new Product($product['partnumber'],
@@ -47,6 +47,31 @@ Class Product{
 			$product['vatrate']);
       }
       return $list;
+    }
+
+
+    public function getSingle($partNumber){
+
+    	$sqlGetSingle = 'SELECT * FROM `products` WHERE partnumber= :partnumber';
+
+    	$dbInstance = Database::getInstance();
+
+    	$sqlRequest = $dbInstance->prepare($sqlGetSingle);
+
+    	$sqlRequest->execute(array(':partnumber' => $partNumber));
+
+      	$product = $sqlRequest->fetch();
+
+
+        $productSingle = new Product($product['partnumber'],
+			$product['description'],
+			$product['image'],
+			$product['stock'],
+			$product['costprice'],
+			$product['saleprice'],
+			$product['vatrate']);
+      
+      return $productSingle;
     }
 
 
