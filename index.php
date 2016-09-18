@@ -11,14 +11,21 @@
 
 <body>
 
-<div class="products-table" id="productsTable">
+<div class="buttons">
+	<a href="new.php?action=new">Add Product</a>
+</div>
+
+
 
 <?php
 
 	require_once('model/connection.php');
-
-	include 'view/view.php';
+	require_once('controller/productscontroller.php');
 	include 'model/products.php';
+
+
+	ProductsController::getAll();
+
 
 
 	// Product::edit(000000000012, "temp product", "img/products/00000011.jpg", 38, 4.09, 4.10, 0.3);
@@ -26,17 +33,15 @@
 	// Product::create("Fourth tool", "img/products/00000004.jpg", 38, 4.09, 4.90, 0.3);
 
 
-	echo showAllProducts(Product::getAll());
+
+
+	// echo showAllProducts(Product::getAll());
 
 
 
 ?>
 
-</div>
 
-<div class="product-overlay" id="productOverlay">
-	<?php echo showSingleProduct(Product::getSingle(00000001)) ?>
-</div>
 
 </body>
 </html>

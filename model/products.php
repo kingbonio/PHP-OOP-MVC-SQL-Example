@@ -60,16 +60,16 @@ Class Product{
 
     	$sqlRequest->execute(array(':partnumber' => $partNumber));
 
-      	$product = $sqlRequest->fetch();
+    	$product = $sqlRequest->fetch();
 
 
-        $productSingle = new Product($product['partnumber'],
-			$product['description'],
-			$product['image'],
-			$product['stock'],
-			$product['costprice'],
-			$product['saleprice'],
-			$product['vatrate']);
+      $productSingle = new Product($product['partnumber'],
+  			$product['description'],
+  			$product['image'],
+  			$product['stock'],
+  			$product['costprice'],
+  			$product['saleprice'],
+  			$product['vatrate']);
       
       return $productSingle;
     }
