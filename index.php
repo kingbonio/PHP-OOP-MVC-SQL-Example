@@ -12,7 +12,7 @@
 <body>
 
 <div class="buttons">
-	<a href="new.php?action=new">Add Product</a>
+	<a href="create.php">Add Product</a>
 </div>
 
 
@@ -24,7 +24,7 @@
 	include 'model/products.php';
 
 
-	ProductsController::getAll();
+	ProductsController::printAll();
 
 
 

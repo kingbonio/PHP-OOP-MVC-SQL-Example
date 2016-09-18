@@ -30,12 +30,10 @@
 
 <?php 	
 
-ProductsController::getSingle(0000001);
-
 if (!isset($_GET['partnumber'])){
-		ProductsController::getSingle($_GET['partnumber']);
-}else{
 	echo "No part number requested";
+}else{
+		ProductsController::printSingle($_GET['partnumber']);
 }
 
 ?>

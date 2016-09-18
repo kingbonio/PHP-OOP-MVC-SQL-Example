@@ -75,32 +75,32 @@ Class Product{
     }
 
 
-    public function edit($partNumber, $description, $image, $stock, $costPrice, $salePrice, $vatRate){
+    public function edit($originalPartNumber, $partNumber, $description, $image, $stock, $costPrice, $salePrice, $vatRate){
 
 
-		$sqlEdit = 'UPDATE products SET description= :description, image= :image, stock= :stock, costprice= :costprice, saleprice= :saleprice, vatrate= :vatrate WHERE partnumber= :partnumber';
+		$sqlEdit = 'UPDATE products SET partnumber= :partnumber, description= :description, image= :image, stock= :stock, costprice= :costprice, saleprice= :saleprice, vatrate= :vatrate WHERE partnumber= :originalpartnumber';
 
     	$dbInstance = Database::getInstance();
 
     	$sqlRequest = $dbInstance->prepare($sqlEdit);
 
-    	$sqlRequest->execute(array(':description' => $description,':image' => $image,':stock' => $stock,':costprice' => $costPrice,':saleprice' => $salePrice,':vatrate' => $vatRate,':partnumber' => $partNumber));
+    	$sqlRequest->execute(array(':partnumber' => $partNumber, ':description' => $description,':image' => $image,':stock' => $stock,':costprice' => $costPrice,':saleprice' => $salePrice,':vatrate' => $vatRate, ':originalpartnumber' => $originalPartNumber));
 
 
       return $sqlRequest;
     }
 
 
-    public function create($description, $image, $stock, $costPrice, $salePrice, $vatRate){
+    public function create($partNumber, $description, $image, $stock, $costPrice, $salePrice, $vatRate){
 
 
-		$sqlCreate = 'INSERT INTO products (description, image, stock, costprice, saleprice, vatrate) VALUES (:description, :image, :stock, :costprice, :saleprice, :vatrate)';
+		$sqlCreate = 'INSERT INTO products (partnumber, description, image, stock, costprice, saleprice, vatrate) VALUES (:partnumber, :description, :image, :stock, :costprice, :saleprice, :vatrate)';
 
     	$dbInstance = Database::getInstance();
 
     	$sqlRequest = $dbInstance->prepare($sqlCreate);
 
-    	$sqlRequest->execute(array(':description' => $description,':image' => $image,':stock' => $stock,':costprice' => $costPrice,':saleprice' => $salePrice,':vatrate' => $vatRate));
+    	$sqlRequest->execute(array(':partnumber' => $partnumber, ':description' => $description,':image' => $image,':stock' => $stock,':costprice' => $costPrice,':saleprice' => $salePrice,':vatrate' => $vatRate));
 
       return $sqlRequest;
     }
