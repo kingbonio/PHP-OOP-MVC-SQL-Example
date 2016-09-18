@@ -100,11 +100,24 @@ Class Product{
 
     	$sqlRequest = $dbInstance->prepare($sqlCreate);
 
-    	$sqlRequest->execute(array(':partnumber' => $partnumber, ':description' => $description,':image' => $image,':stock' => $stock,':costprice' => $costPrice,':saleprice' => $salePrice,':vatrate' => $vatRate));
+    	$sqlRequest->execute(array(':partnumber' => $partNumber, ':description' => $description,':image' => $image,':stock' => $stock,':costprice' => $costPrice,':saleprice' => $salePrice,':vatrate' => $vatRate));
 
       return $sqlRequest;
     }
 
+
+    public function delete($partNumber){
+
+      $sqlGetSingle = 'DELETE FROM `products` WHERE partnumber= :partnumber';
+
+      $dbInstance = Database::getInstance();
+
+      $sqlRequest = $dbInstance->prepare($sqlGetSingle);
+
+      $sqlRequest->execute(array(':partnumber' => $partNumber));
+
+      echo "Product removed successfully";
+    }
 
 }
 

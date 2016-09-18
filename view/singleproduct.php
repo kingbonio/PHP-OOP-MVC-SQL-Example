@@ -9,6 +9,11 @@ echo "<div class='product-single' id='productSingle'>"
 	."Sale Price: " . $product->saleprice . "<br />"
 	."VAT Rate: " . $product->vatrate . '<br />------------<br />'
 	."<a class='edit-button' href='edit.php?partnumber=" . $product->partnumber . "'>Edit</a></br>"
-	."</div>";
+	."</div>"
+	.'<form action="confirm.php" method="post">'
+	.'<input type="text" value="' . $product->partnumber . '" name="partnumber" style="display:none;">'
+	.'<input type="text" value="delete" name="action" style="display:none;"><br />'
+	.'<input type="submit" value="Delete">'
+	.'</form>';
 
 ?>
