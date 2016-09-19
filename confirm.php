@@ -5,7 +5,7 @@ include 'partials/nav.php'
 
 
 <container class="single-product">
-	<div class="output">
+	<div class="output col-md-12 center">
 	<?php
 
 

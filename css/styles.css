@@ -1,3 +1,7 @@
+body {
+  font: 100% Helvetica, sans-serif;
+}
+
 .header-nav {
   padding: 10px;
   margin-bottom: 10px;
@@ -5,11 +9,6 @@
 
 .center {
   text-align: center;
-}
-
-body {
-  font: 100% Helvetica, sans-serif;
-  color: red;
 }
 
 .all-products-table {
@@ -24,7 +23,7 @@ body {
 
 .all-products-table .product-block .product-image {
   border: solid #a6a6a6 2px;
-  width: 150px;
+  height: 150px;
 }
 
 .single-product {

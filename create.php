@@ -5,7 +5,8 @@ include 'partials/nav.php';
 
 
 <container class='create-form'>
-	<div class='create-block center'>
+	<div class='col-md-4 col-xs-0'></div>
+	<div class='create-block center col-md-4'>
 	<?php
 
 	require_once('model/connection.php');
@@ -25,6 +26,8 @@ include 'partials/nav.php';
 			</form>';
 	?>
 	</div>
+
+	<div class='col-md-4 col-xs-0'></div>
 </container>
 
 <?php

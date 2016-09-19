@@ -1,5 +1,8 @@
-$font-stack:    Helvetica, sans-serif;
-$primary-color: red;
+$main-font: Helvetica, sans-serif;
+
+body {
+  font: 100% $main-font;
+}
 
 .header-nav{
 	padding: 10px;
@@ -10,8 +13,4 @@ $primary-color: red;
 	text-align: center;
 }
 
-body {
-  font: 100% $font-stack;
-  color: $primary-color;
-}
 

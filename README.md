@@ -1,3 +1,34 @@
-A simple test to show database access via MVC using OOP.
+A simple test to show database access using MVC and OOP.
 
-Once completed will list products, allow viewing of single products, allow alterations to or remove existing products, or add news products.
+
+Application allows creation, deletion and alteration of products.
+
+
+Product objects contain:
+
+Part Number
+Description
+Image
+Stock
+Cost Price
+Sale Price
+VAT Rate
+
+
+Images should be placed in the img/products/ folder and their file names only should be provided in the "Image" field while editing or creating a new product.
+
+
+A database is necessary the details are listed below:
+
+Database Name: 'cromwelltools',
+Table Name: 'products',
+Columns:
+	-partnumber (int, length=8, auto-increment, primary key, unique, unsigned zerofill)
+	-description (varchar, length=256)
+	-image (varchar, length=256)
+	-stock (int, length=8)
+	-costprice (float)
+	-saleprice (float)
+	-vatrate (float)
+Username: 'root',
+Password: '' (blank)
