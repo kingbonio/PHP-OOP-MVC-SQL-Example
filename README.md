@@ -21,14 +21,25 @@ Images should be placed in the img/products/ folder and their file names only sh
 A database is necessary the details are listed below:
 
 Database Name: 'cromwelltools',
+
 Table Name: 'products',
+
 Columns:
+
 	-partnumber (int, length=8, auto-increment, primary key, unique, unsigned zerofill)
+
 	-description (varchar, length=256)
+
 	-image (varchar, length=256)
+
 	-stock (int, length=8)
+
 	-costprice (float)
+
 	-saleprice (float)
+
 	-vatrate (float)
+
 Username: 'root',
+
 Password: '' (blank)
