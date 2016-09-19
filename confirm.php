@@ -4,8 +4,7 @@ include 'partials/nav.php'
 ?>
 
 
-
-<container class="confirmation">
+<container class="single-product">
 	<div class="output">
 	<?php
 

@@ -19,16 +19,16 @@ class ProductsController {
 	public function create($partNumber, $description, $image, $stock, $costPrice, $salePrice, $vatRate){
 
 		$product = Product::getSingle($partNumber);
-		print_r($product);
 		
 		if ((!is_int($partNumber)) && (strlen((string)$partNumber)) != 8){
-			echo "<br />The format for your part number must be 8 digits of numbers 0-9"
-			. "<br /><a href='#' onclick='window.history.back(); return false;'>Back</a>";
+			echo "<div class='confirmation center'><br />The format for your part number must be 8 digits of numbers 0-9"
+			. "<br /><a href='#' onclick='window.history.back(); return false;'>Back</a></div>";
 		} elseif ($product->partnumber != NULL){
-			echo "<br />Part number already exists"
-			. "<br /><a href='#' onclick='window.history.back(); return false;'>Back</a>";
+			echo "<div class='confirmation center'><br />Part number already exists"
+			. "<br /><a href='#' class='edit-button btn btn-sm btn-default' onclick='window.history.back(); return false;'>Back</a></div>";
 		} else {
 			Product::create($partNumber, $description, $image, $stock, $costPrice, $salePrice, $vatRate);
+			echo "<div class='confirmation center'><br />Successfully create new product</div>";
       		self::printSingle($partNumber);
 		}
 	}
@@ -36,15 +36,15 @@ class ProductsController {
 	public function edit($originalPartNumber, $partNumber, $description, $image, $stock, $costPrice, $salePrice, $vatRate){
 		$product = Product::getSingle($partNumber);
 		if (($partNumber != $originalPartNumber) && ($product->partnumber != NULL)){
-			echo "<br />Part number already exists"
-			. "<br /><a href='#' onclick='window.history.back(); return false;'>Back</a>";
+			echo "<div class='confirmation center'><br />Part number already exists"
+			. "<br /><a href='#' class='edit-button btn btn-sm btn-default' onclick='window.history.back(); return false;'>Back</a></div>";
 		} elseif((!is_int($partNumber)) && (strlen((string)$partNumber)) != 8){
-			echo "<br />The format for your part number must be 8 digits of numbers 0-9"
-			. "<br /><a href='#' onclick='window.history.back(); return false;'>Back</a>";
+			echo "<div class='confirmation center'><br />The format for your part number must be 8 digits of numbers 0-9"
+			. "<br /><a href='#' class='edit-button btn btn-sm btn-default' onclick='window.history.back(); return false;'>Back</a></div>";
 
 		}else{
 			Product::edit($originalPartNumber, $partNumber, $description, $image, $stock, $costPrice, $salePrice, $vatRate);
-			echo "<br />You have succesfully edited the part number " . $partNumber . "<br />";
+			echo "<div class='confirmation center'><br />You have succesfully edited the part number " . $partNumber . "<br /></div>";
 			self::printSingle($partNumber);
   		}
 		

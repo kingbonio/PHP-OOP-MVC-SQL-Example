@@ -14,15 +14,17 @@ include 'partials/nav.php'
 
 ?>
 
-<?php 	
+<container class="single-product">
+	<?php 	
 
-if (!isset($_GET['partnumber'])){
-	echo "No part number requested";
-}else{
-		ProductsController::printSingle($_GET['partnumber']);
-}
+	if (!isset($_GET['partnumber'])){
+		echo "No part number requested";
+	}else{
+			ProductsController::printSingle($_GET['partnumber']);
+	}
 
-?>
+	?>
+</container>
 
 
 

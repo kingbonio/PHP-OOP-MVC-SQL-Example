@@ -1,3 +1,8 @@
+.header-nav {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
 .center {
   text-align: center;
 }
@@ -12,13 +17,68 @@ body {
 }
 
 .all-products-table .product-block {
-  border: solid red 1px;
-  background-color: grey;
+  padding: 10px;
+  border: solid #a6a6a6 1px;
+  background-color: #d9d9d9;
 }
 
 .all-products-table .product-block .product-image {
-  border: solid grey 2px;
-  height: 100px;
+  border: solid #a6a6a6 2px;
+  width: 150px;
+}
+
+.single-product {
+  max-width: 800px;
+}
+
+.single-product .product-block {
+  padding: 10px;
+  border: solid #a6a6a6 1px;
+  background-color: #d9d9d9;
+}
+
+.single-product .product-block .product-image {
+  border: solid #a6a6a6 2px;
+  width: 150px;
+}
+
+.edit-form .edit-block {
+  padding: 10px;
+  border: solid #a6a6a6 1px;
+  background-color: #d9d9d9;
+}
+
+.edit-form .edit-block .product-image {
+  border: solid #a6a6a6 1px;
+  width: 150px;
+}
+
+.edit-form .edit-block .input-name {
+  padding-right: 10px;
+  text-align: right;
+  width: 100px;
+  display: inline-block;
+}
+
+.edit-form .edit-block input {
+  width: 150px;
+}
+
+.create-form .create-block {
+  padding: 10px;
+  border: solid #a6a6a6 1px;
+  background-color: #d9d9d9;
+}
+
+.create-form .create-block .input-name {
+  padding-right: 10px;
+  text-align: right;
+  width: 100px;
+  display: inline-block;
+}
+
+.create-form .create-block input {
+  width: 150px;
 }
 
 /*# sourceMappingURL=styles.css.map */
