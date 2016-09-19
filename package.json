@@ -15,8 +15,10 @@
   "main": "gulpfile.js",
   "devDependencies": {
     "default": "^0.1.1",
+    "grunt": "^1.0.1",
     "grunt-browser-sync": "^2.2.0",
     "grunt-contrib-cssmin": "^1.0.2",
+    "grunt-contrib-jshint": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "time-grunt": "^1.4.0"
   },
@@ -25,5 +27,13 @@
   },
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "A simple test to show database access via MVC using OOP.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kingbonio/phptest.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kingbonio/phptest/issues"
+  },
+  "homepage": "https://github.com/kingbonio/phptest#readme"
 }

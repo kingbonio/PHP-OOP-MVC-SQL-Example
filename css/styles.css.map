@@ -1,0 +1,11 @@
+{
+	"version": 3,
+	"file": "styles.css",
+	"sources": [
+		"../scss/styles.scss",
+		"../scss/_home.scss",
+		"../scss/_products.scss"
+	],
+	"mappings": "ACGA,AAAA,IAAI,CAAC;EACH,IAAI,EAAE,IAAI,CAJI,SAAS,EAAE,UAAU;EAKnC,KAAK,EAJS,IAAI;CAKnB;;ACND,AACC,mBADkB,CAClB,cAAc,CAAA;EACb,MAAM,EAAE,eAAgB;CAKxB;;AAPF,AAGE,mBAHiB,CAClB,cAAc,CAEb,cAAc,CAAA;EACb,MAAM,EAAE,cAAe;EACvB,MAAM,EAAE,KAAM;CACd",
+	"names": []
+}

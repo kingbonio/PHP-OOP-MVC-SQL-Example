@@ -32,22 +32,11 @@ module.exports = function(grunt) {
         }
       }
     },
-    browserSync: {
-        dev: {
-            bsFiles: {
-                src : 'css/styles.min.css'
-            },
-            options: {
-              watchTask: true,
-                proxy: "http://cromwelltoolstest.dev"
-            }
-        }
-    },
     watch: {
       grunt: { files: ['Gruntfile.js'] },
 
       sass: {
-        files: 'scss/**/*.scss',
+        files: 'scss/*.scss',
         tasks: ['sass'],
         options: {
               livereload:true,
@@ -68,10 +57,9 @@ module.exports = function(grunt) {
       }
     }
   });
-  grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.registerTask('default',['browserSync','watch']);
+  grunt.registerTask('default', ['sass','cssmin','watch']);
 
 }

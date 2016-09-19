@@ -1,0 +1,15 @@
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+}
+
+.all-products-table .product-block {
+  border: solid black 1px;
+}
+
+.all-products-table .product-block .product-image {
+  border: solid grey 2px;
+  height: 100px;
+}
+
+/*# sourceMappingURL=styles.css.map */
