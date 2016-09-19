@@ -48,4 +48,4 @@ Temporary Items
 
 # Custom gitignores
 node_modules/
-Bootstrap/
+bootstrap/

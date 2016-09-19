@@ -1,17 +1,6 @@
-<!doctype html>
-<html>
-<head>
-    <title>Create New Product</title>
-
-    <meta charset="utf-8" />
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
-	<link rel="stylesheet" type="text/css" href="css/styles.min.css">
-	
-</head>
-
-<body>
+<?php
+include 'partials/header.php';
+?>
 
 <div class="nav-bar">
 	<a href="/">Home</a>
@@ -40,4 +29,9 @@ echo '<form action="confirm.php" method="post">
 		<input type="submit">
 		</form>';
 
+?>
+
+
+<?php
+include 'partials/footer.php';
 ?>

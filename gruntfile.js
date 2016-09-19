@@ -33,27 +33,16 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      grunt: { files: ['Gruntfile.js'] },
-
       sass: {
         files: 'scss/*.scss',
-        tasks: ['sass'],
-        options: {
-              livereload:true,
-            }
+        tasks: ['sass']
       },
       css: {
         files: 'css/styles.css',
-        tasks: ['cssmin'],
-        options: {
-          livereload:true,
-        }
+        tasks: ['cssmin']
       },
        all: {
-        files: '**/*.*',
-        options: {
-            livereload:true,
-        }
+        files: '**/*.*'
       }
     }
   });

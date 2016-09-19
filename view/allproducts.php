@@ -14,15 +14,15 @@
 			."Cost Price: " . $product->costprice . "<br />\n"
 			."Sale Price: " . $product->saleprice . "<br />\n"
 			."VAT Rate: " . $product->vatrate . "<br />\n"
-			."<a class='view-button' href='product.php?partnumber=" . $product->partnumber . "'>View</a>\n"
-			."<a class='edit-button' href='edit.php?partnumber=" . $product->partnumber . "'>Edit</a></br>\n"
+			."<a class='view-button btn btn-sm btn-default' href='product.php?partnumber=" . $product->partnumber . "'>View</a>\n"
+			."<a class='edit-button btn btn-sm btn-default' href='edit.php?partnumber=" . $product->partnumber . "'>Edit</a>\n"
 			.'<form action="confirm.php" method="post">' . "\n"
+			.'<input type="submit" class="btn btn-sm btn-default" value="Delete">' . "\n"
 			.'<input type="text" value="' . $product->partnumber . '" name="partnumber" style="display:none;">' . "\n"
 			.'<input type="text" value="delete" name="action" style="display:none;">' . "\n"
-			.'<input type="submit" value="Delete">' . "\n"
 			.'</form>' . "\n"
 			."</div>\n\n";
-			
+
 		if ($i % 3 == 2){
 			$output = $output . "</div>\n";
 		} elseif($key == count($productList) -1){
