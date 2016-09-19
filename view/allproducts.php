@@ -2,7 +2,8 @@
 
 	$output = "";
 	foreach ($productList as $key => $product){
-		$output = $output . "Part Number: " . $product->partnumber . "<br />"
+		$output = $output . "<div class='product-block' id='productBlock'>"
+			."Part Number: " . $product->partnumber . "<br />"
 			."<img height=100  border=1 src='img/products/" . $product->image . "' /><br />"
 			."Description: " . $product->description . "<br />"
 			."Stock Quantity: " . $product->stock . "<br />"
@@ -15,7 +16,8 @@
 			.'<input type="text" value="' . $product->partnumber . '" name="partnumber" style="display:none;">'
 			.'<input type="text" value="delete" name="action" style="display:none;">'
 			.'<input type="submit" value="Delete">'
-			.'</form>';
+			.'</form>'
+			."</div>";
 	}
 	echo '<div class="products-table" id="productsTable">' . $output . '</div>';
 
