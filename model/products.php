@@ -25,98 +25,126 @@ Class Product{
 
     public function getAll(){
 
-    	$sqlGetAll = 'SELECT * FROM `products`';
+      try{
+      	$sqlGetAll = 'SELECT * FROM `products`';
 
-    	$dbInstance = Database::getInstance();
+      	$dbInstance = Database::getInstance();
 
-    	$sqlRequest = $dbInstance->prepare($sqlGetAll);
+      	$sqlRequest = $dbInstance->prepare($sqlGetAll);
 
-    	$sqlRequest->execute(array());
+      	$sqlRequest->execute(array());
 
-    	$list = [];
+      	$list = [];
 
-    	// var_dump($sqlRequest->fetchAll());
-    	
-      foreach($sqlRequest->fetchAll() as $product) {
-        $list[] = new Product($product['partnumber'],
-			$product['description'],
-			$product['image'],
-			$product['stock'],
-			$product['costprice'],
-			$product['saleprice'],
-			$product['vatrate']);
-      }
-      return $list;
-    }
-
-
-    public function getSingle($partNumber){
-
-    	$sqlGetSingle = 'SELECT * FROM `products` WHERE partnumber= :partnumber';
-
-    	$dbInstance = Database::getInstance();
-
-    	$sqlRequest = $dbInstance->prepare($sqlGetSingle);
-
-    	$sqlRequest->execute(array(':partnumber' => $partNumber));
-
-    	$product = $sqlRequest->fetch();
-
-
-      $productSingle = new Product($product['partnumber'],
+      	// var_dump($sqlRequest->fetchAll());
+      	
+        foreach($sqlRequest->fetchAll() as $product) {
+          $list[] = new Product($product['partnumber'],
   			$product['description'],
   			$product['image'],
   			$product['stock'],
   			$product['costprice'],
   			$product['saleprice'],
   			$product['vatrate']);
-      
-      return $productSingle;
+        }
+        return $list;
+
+      } catch(PDOException $error) {
+          echo "There was an error getting products: " . $error->getMessage();
+      }
+      $dbInstance = null;
+
+    }
+
+
+    public function getSingle($partNumber){
+
+      try{
+      	$sqlGetSingle = 'SELECT * FROM `products` WHERE partnumber= :partnumber';
+
+      	$dbInstance = Database::getInstance();
+
+      	$sqlRequest = $dbInstance->prepare($sqlGetSingle);
+
+      	$sqlRequest->execute(array(':partnumber' => $partNumber));
+
+      	$product = $sqlRequest->fetch();
+
+
+        $productSingle = new Product($product['partnumber'],
+    			$product['description'],
+    			$product['image'],
+    			$product['stock'],
+    			$product['costprice'],
+    			$product['saleprice'],
+    			$product['vatrate']);
+        
+        return $productSingle;
+
+      } catch(PDOException $error) {
+          echo "There was an error getting the product: " . $error->getMessage();
+      }
+      $dbInstance = null;
     }
 
 
     public function edit($originalPartNumber, $partNumber, $description, $image, $stock, $costPrice, $salePrice, $vatRate){
 
+      try{
+  		  $sqlEdit = 'UPDATE products SET partnumber= :partnumber, description= :description, image= :image, stock= :stock, costprice= :costprice, saleprice= :saleprice, vatrate= :vatrate WHERE partnumber= :originalpartnumber';
 
-		$sqlEdit = 'UPDATE products SET partnumber= :partnumber, description= :description, image= :image, stock= :stock, costprice= :costprice, saleprice= :saleprice, vatrate= :vatrate WHERE partnumber= :originalpartnumber';
+      	$dbInstance = Database::getInstance();
 
-    	$dbInstance = Database::getInstance();
+      	$sqlRequest = $dbInstance->prepare($sqlEdit);
 
-    	$sqlRequest = $dbInstance->prepare($sqlEdit);
-
-    	$sqlRequest->execute(array(':partnumber' => $partNumber, ':description' => $description,':image' => $image,':stock' => $stock,':costprice' => $costPrice,':saleprice' => $salePrice,':vatrate' => $vatRate, ':originalpartnumber' => $originalPartNumber));
+      	$sqlRequest->execute(array(':partnumber' => $partNumber, ':description' => $description,':image' => $image,':stock' => $stock,':costprice' => $costPrice,':saleprice' => $salePrice,':vatrate' => $vatRate, ':originalpartnumber' => $originalPartNumber));
 
 
-      return $sqlRequest;
+        return $sqlRequest;
+      } catch(PDOException $error) {
+          echo "There was an error editing the product: " . $error->getMessage();
+      }
+      $dbInstance = null;
     }
 
 
     public function create($partNumber, $description, $image, $stock, $costPrice, $salePrice, $vatRate){
 
+      try{
+  		  $sqlCreate = 'INSERT INTO products (partnumber, description, image, stock, costprice, saleprice, vatrate) VALUES (:partnumber, :description, :image, :stock, :costprice, :saleprice, :vatrate)';
 
-		$sqlCreate = 'INSERT INTO products (partnumber, description, image, stock, costprice, saleprice, vatrate) VALUES (:partnumber, :description, :image, :stock, :costprice, :saleprice, :vatrate)';
+      	$dbInstance = Database::getInstance();
 
-    	$dbInstance = Database::getInstance();
+      	$sqlRequest = $dbInstance->prepare($sqlCreate);
 
-    	$sqlRequest = $dbInstance->prepare($sqlCreate);
+      	$sqlRequest->execute(array(':partnumber' => $partNumber, ':description' => $description,':image' => $image,':stock' => $stock,':costprice' => $costPrice,':saleprice' => $salePrice,':vatrate' => $vatRate));
 
-    	$sqlRequest->execute(array(':partnumber' => $partNumber, ':description' => $description,':image' => $image,':stock' => $stock,':costprice' => $costPrice,':saleprice' => $salePrice,':vatrate' => $vatRate));
+        return $sqlRequest;
 
-      return $sqlRequest;
+      } catch(PDOException $error) {
+          echo "There was an error creating the product: " . $error->getMessage();
+      }
+      $dbInstance = null;
     }
 
 
     public function delete($partNumber){
 
-      $sqlGetSingle = 'DELETE FROM `products` WHERE partnumber= :partnumber';
+      try{
+        $sqlGetSingle = 'DELETE FROM `products` WHERE partnumber= :partnumber';
 
-      $dbInstance = Database::getInstance();
+        $dbInstance = Database::getInstance();
 
-      $sqlRequest = $dbInstance->prepare($sqlGetSingle);
+        $sqlRequest = $dbInstance->prepare($sqlGetSingle);
 
-      $sqlRequest->execute(array(':partnumber' => $partNumber));
+        $sqlRequest->execute(array(':partnumber' => $partNumber));
 
-      echo "Product removed successfully";
+        echo "Product removed successfully";
+
+      } catch(PDOException $error) {
+          echo "There was an error deleteing the product: " . $error->getMessage();
+      }
+      $dbInstance = null;
     }
 
 }

@@ -1,4 +1,16 @@
+$font-stack:    Helvetica, sans-serif;
+$primary-color: red;
+
+.header-nav{
+	padding: 10px;
+}
+
 .center{
 	text-align: center;
-	
 }
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+

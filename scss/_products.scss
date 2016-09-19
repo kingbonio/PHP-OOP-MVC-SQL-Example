@@ -8,4 +8,14 @@
 			height: 100px;
 		}
 	}
+}.single-product{
+	max-width: 800px;
+	.product-block{
+		border: solid red 1px;
+		background-color: grey;
+		.product-image{
+			border: solid grey 2px;
+			height: 100px;
+		}
+	}
 }

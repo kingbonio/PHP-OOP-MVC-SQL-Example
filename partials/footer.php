@@ -4,5 +4,7 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bootrstrap/js/bootstrap.min.js"></script>
 
+    <script src="js/scripts.js"></script>
+
 </body>
 </html>

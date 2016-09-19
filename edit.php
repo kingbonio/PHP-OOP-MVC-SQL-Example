@@ -1,10 +1,7 @@
 <?php
 include 'partials/header.php';
+include 'partials/nav.php'
 ?>
-
-<div class="nav-bar">
-	<a href="/">Home</a>
-</div>
 
 
 <?php

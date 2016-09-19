@@ -1,6 +1,8 @@
 <?php
 include 'partials/header.php';
+include 'partials/nav.php'
 ?>
+
 
 <?php
 
@@ -11,10 +13,6 @@ include 'partials/header.php';
 
 
 ?>
-
-<div class="nav-bar">
-	<a href="/">Home</a>
-</div>
 
 <?php 	
 
