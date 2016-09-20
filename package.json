@@ -1,5 +1,5 @@
 {
-  "name": "cromwelltoolstest",
+  "name": "productsapplication",
   "version": "1.0.0",
   "dependencies": {
     "gulp": "*",

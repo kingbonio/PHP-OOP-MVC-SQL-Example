@@ -20,7 +20,7 @@ Images should be placed in the img/products/ folder and their file names only sh
 
 A database is necessary the details are listed below:
 
-Database Name: 'cromwelltools',
+Database Name: 'toolsdatabase',
 
 Table Name: 'products',
 
